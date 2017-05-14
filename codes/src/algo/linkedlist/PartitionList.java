@@ -1,5 +1,7 @@
 package algo.linkedlist;
 
+import java.util.Optional;
+
 /**
  * 86. Partition List
  * Created by chenc on 2017/5/9.
@@ -20,6 +22,7 @@ public class PartitionList {
             }
             head = head.next;
         }
+
         tempNext.next = null;
         tempBefore.next = fakeNext.next;
         return fakeBefore.next;
