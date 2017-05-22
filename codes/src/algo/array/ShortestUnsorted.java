@@ -2,6 +2,7 @@ package algo.array;
 
 /**
  * 581. Shortest Unsorted Continuous Subarray
+ * not easy to understand
  * Created by chenc on 2017/5/19.
  */
 public class ShortestUnsorted {
