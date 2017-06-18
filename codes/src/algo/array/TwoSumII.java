@@ -21,5 +21,7 @@ public class TwoSumII {
             }
         }
         return ans;
+        //method2
+        //start --> <-- end
     }
 }
