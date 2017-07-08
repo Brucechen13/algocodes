@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class CombinationSumIII {
     public List<List<Integer>> combinationSum3(int k, int n) {
-        List<List<Integer>> ans = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<List<Integer>>();
         combination(ans, new ArrayList<Integer>(), k, 1, n);
         return ans;
     }
