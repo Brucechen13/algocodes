@@ -15,21 +15,20 @@ public class ConstructBinaryTree {
         if(postorder==null || postorder.length < 1){
             return null;
         }
-        TreeNode root = findRoot(inorder, postorder, postorder.length-1, 0, postorder.length, 0, postorder.length);
+        TreeNode root = findRoot(inorder, postorder, 0, postorder.length, 0, postorder.length);
         return root;
     }
-    public TreeNode findRoot(int[] inorder, int[] postorder, int rootVal, int ileft, int iend, int pleft, int pend){
-        if (ileft>iend || pleft>pend) return null;
+    public TreeNode findRoot(int[] inorder, int[] postorder, int ileft, int iend, int pleft, int pend){
+        if (ileft>=iend || pleft>=pend) return null;
         int index = -1;
         for(int i = ileft; i < iend; i ++){
-            if(inorder[i] == postorder[rootVal]){
+            if(inorder[i] == postorder[pend-1]){
                 index = i;
             }
         }
-        System.out.println(ileft + " " + iend + " " + pleft + " " + pend + " " + rootVal + " " + index);
-        TreeNode node = new TreeNode(postorder[rootVal]);
-        node.left = findRoot(inorder, postorder, pleft+index-ileft-1, ileft, index, pleft, pleft+index-ileft);
-        node.right = findRoot(inorder, postorder, pend-1, index+1, iend, pleft+index-ileft+1, pend);
+        TreeNode node = new TreeNode(postorder[pend-1]);
+        node.left = findRoot(inorder, postorder, ileft, index, pleft, pleft+index-ileft);
+        node.right = findRoot(inorder, postorder, index+1, iend, pleft+index-ileft, pend-1);
         return node;
     }
 
