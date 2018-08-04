@@ -1,6 +1,5 @@
 package algo.competition;
 
-import java.awt.desktop.SystemSleepEvent;
 import java.util.Arrays;
 
 public class Solution {
