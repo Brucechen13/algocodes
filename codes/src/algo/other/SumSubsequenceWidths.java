@@ -11,7 +11,6 @@ public class SumSubsequenceWidths {
         for (int i = 0; i < A.length; ++i, c = (c << 1) % mod)
             res = (res + A[i] * c - A[A.length - i - 1] * c) % mod;
         return (int)((res + mod) % mod);
-
     }
 
     public static void main(String[] args){
