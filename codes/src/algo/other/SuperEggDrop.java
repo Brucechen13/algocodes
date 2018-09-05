@@ -1,6 +1,5 @@
 package algo.other;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class SuperEggDrop {
     public int superEggDrop(int K, int N) {

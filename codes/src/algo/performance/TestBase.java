@@ -1,21 +1,51 @@
 package algo.performance;
 
+import java.util.Vector;
+
 public class TestBase {
-    //测试父类构造函数
-    static class Father{
-        public Father(){
-            System.out.print("father1");
+    public final static int OUTOFMEMORY = 200000000;
+
+    private String oom;
+
+    private int length;
+
+    StringBuffer tempOOM = new StringBuffer();
+
+    public TestBase(int leng) {
+        this.length = leng;
+
+        int i = 0;
+        while (i < leng) {
+            i++;
+            try {
+                tempOOM.append("a");
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
+                break;
+            }
+            if(i%1000000 == 0){
+                try{
+                    Thread.sleep(100);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
         }
-        public Father(int i){
-            System.out.print("father2");
-        }
-    }
-    static class Child extends Father{
+        this.oom = tempOOM.toString();
 
     }
-    //接口和抽象类的异同
 
-    public static void main(String[] args){
-        Father child = new Child();
+    public String getOom() {
+        return oom;
     }
+
+    public int getLength() {
+        return length;
+    }
+
+    public static void main(String[] args) {
+        TestBase javaHeapTest = new TestBase(OUTOFMEMORY);
+        System.out.println(javaHeapTest.getOom().length());
+    }
+
 }
