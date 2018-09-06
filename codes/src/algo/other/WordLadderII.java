@@ -5,10 +5,15 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class WordLadderII {
 
-    public List<List<String>> findLadders(String start, String end, Set<String> dict) {
+    public List<List<String>> findLadders(String start, String end, List<String> dict) {
         // hash set for both ends
         Set<String> set1 = new HashSet<String>();
         Set<String> set2 = new HashSet<String>();
+        List<List<String>> res = new ArrayList<List<String>>();
+
+        if(!dict.contains(end))return res;
+
+        Set<String> sdict = new HashSet<>(dict);
 
         // initial words in both ends
         set1.add(start);
@@ -18,9 +23,8 @@ public class WordLadderII {
         Map<String, List<String>> map = new HashMap<String, List<String>>();
 
         // build the map
-        helper(dict, set1, set2, map, false);
+        helper(sdict, set1, set2, map, false);
 
-        List<List<String>> res = new ArrayList<List<String>>();
         List<String> sol = new ArrayList<String>(Arrays.asList(start));
 
         // recursively build the final result
@@ -105,4 +109,5 @@ public class WordLadderII {
             sol.remove(sol.size() - 1);
         }
     }
+
 }
