@@ -28,4 +28,19 @@ public class JumpGameII {
             step++;
         } return step;
     }
+
+    public int jump3(int[] nums){
+        int count = 1;
+        int next = 0;
+        int index = 0;
+        while (next < nums.length){
+            count ++;
+            int preNext = next+1;
+            for(int i = index; i <= next && i < nums.length; i ++){
+                next = Math.max(next, i + nums[i]);
+            }
+            index = preNext;
+        }
+        return count;
+    }
 }
