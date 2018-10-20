@@ -1,7 +1,5 @@
 package algo.performance;
 
-import algo.other.SlidingPuzzle;
-
 import java.util.Random;
 
 public class TestSkipList {
