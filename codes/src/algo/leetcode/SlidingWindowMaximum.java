@@ -10,7 +10,7 @@ public class SlidingWindowMaximum {
             if(queue[begin] + k < i + 1){
                 begin++;
             }
-            if(last == 0 || nums[queue[last-1]] >+ nums[i]){
+            if(last == 0 || nums[queue[last-1]] >= nums[i]){
                 queue[last++] = i;
             }else{
                 while (last>begin && last>0 && nums[queue[last-1]] < nums[i]){

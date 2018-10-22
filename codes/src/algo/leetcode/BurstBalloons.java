@@ -12,6 +12,6 @@ public class BurstBalloons{
                 }
             }
         }
-        return dp[1][nums.length-1];
+        return dp[1][nums.length];
     }
 }
