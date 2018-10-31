@@ -44,7 +44,9 @@ public class FrogJump {
     private boolean dfs(int des, int cur, int step, Set<Integer>set , Map<Integer, Set<Integer>> map){
         if(cur==des)return true;
         if(!set.contains(cur) || step==0 ||  (map.get(cur)!=null && map.get(cur).contains(step)) ) return false;
-        if(dfs(des, cur+step, step-1,set,map) || dfs(des, cur+step, step,set,map) || dfs(des, cur+step, step+1,set,map)) return true;
+        if(dfs(des, cur+step, step-1,set,map) ||
+                dfs(des, cur+step, step,set,map) ||
+                dfs(des, cur+step, step+1,set,map)) return true;
         if (map.get(cur)==null){
             map.put(cur, new HashSet<>());
         }
